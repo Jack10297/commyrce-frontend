@@ -63,7 +63,6 @@ export default function Login() {
 							type="text"
 							onChange={(e) => {
 								setCredentials({ ...credentials, username: e.target.value });
-								console.log(credentials);
 							}}
 							autoComplete="off"
 							required

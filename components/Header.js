@@ -25,7 +25,6 @@ export default function Header() {
 							</button>
 						</div>
 					</div>
-					{/* Fetching Deal Products Here*/}
 					<DealProducts/>
 				</div>
 			</section>

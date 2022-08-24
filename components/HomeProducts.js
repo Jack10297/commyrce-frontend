@@ -4,17 +4,18 @@ import React, { useEffect, useState } from 'react';
 
 export default function HomeProducts() {
 	const [ products, setProducts ] = useState([]);
-
+	const [error, setError] = useState('');
+ 
 	useEffect(() => {
 		axios({
 			method: 'post',
-			url: `${process.env.NEXT_PUBLIC_API_BASE_ENDPOINT}random-products`,
+			url: `${process.env.API_BASE_ENDPOINT}random-products`,
 			data: {
 				noOfProducts: 6,
 			}
 		}).then((res) => {
 			setProducts(res.data);
-		});
+		}).catch(err => setError(err.response.data.msg));
 
 	}, []);
 
@@ -22,6 +23,7 @@ export default function HomeProducts() {
 		<div>
 			<section className="text-gray-600 body-font">
 				<div className="container px-5 py-24 mx-auto">
+				{error ? <h1>Something Went Wrong!</h1> :
 					<div className="flex flex-wrap">
 						{products.map((product, index) => (
 							<Link key={index} href={{
@@ -78,7 +80,7 @@ export default function HomeProducts() {
 
 								</a></Link>
 						))}
-					</div>
+					</div> }
 				</div>
 			</section>
 		</div>

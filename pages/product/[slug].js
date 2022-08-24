@@ -10,6 +10,7 @@ import { addToCart } from '../../store/slices/cartSlice';
 export default function Product() {
 	const dispatch = useDispatch()
 	const [pieces, setPieces] = useState(1)
+	const [error, setError] = useState('')
 
 	const router = useRouter();
 	const { name, price, description, category, image } = router.query;
@@ -41,11 +42,13 @@ export default function Product() {
 			}))
 			
 		})
-		.catch(err => console.log(err.message)) 
+		.catch(err => setError("Something Went Wrong!")) 
 	}
 
 	return (
 		<div className="flex flex-wrap h-screen justify-evenly lg:my-28	">
+			<div>{error ? <h1 className='font-medium'>{error}</h1> : ''}</div>
+
 			<div className="">
 				<img className="rounded-md shadow-md" src={decodeURIComponent(image)} width={300} alt="product" />
 			</div>

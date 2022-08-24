@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart, removeFromCart } from '../store/slices/cartSlice';
@@ -8,6 +8,7 @@ import Layout from '../components/Layout';
 export default function Cart() {
 	const dispatch = useDispatch();
 	const cart = useSelector((state) => state.cart.cartList);
+	const [error, setError] = useState('');
 
 	useEffect(() => {
 		const res = axios({
@@ -20,7 +21,7 @@ export default function Cart() {
 			.then((res) => {
 				if (res.data.status === 413) return router.push('/login');
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => setError("Something went Wrong! 😐"));
 	}, []);
 
 	if (cart.length === 0) {
@@ -40,13 +41,13 @@ export default function Cart() {
 			return <h1>Something went Wrong! 😐</h1>;
 		}
 
-		console.log("DATA : ", payout.data.url)
 		window.open(payout.data.url, '_blank');
 		return;
 	};
 
 	return (
 		<div className="container flex flex-col justify-center items-center">
+			<div className='flex justify-center'>{error ? <h1 className='font-medium text-center'>{error}</h1> : ''}</div>
 			{cart.map((item) => (
 				<div key={item.id} className="flex bg-white shadow-md p-4 my-4 lg:w-1/2 md-2/3">
 					<div className="py-2 px-3 ">

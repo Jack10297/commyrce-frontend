@@ -21,12 +21,11 @@ export default function AdminLogin({setAdmin}) {
 		})
 			.then((res) => {
 				const { state, success, msg } = res.data;
-				console.log('DATA: ', res.data);
 				if (state === 'LOGGED_IN' && success) {
 					setAdmin("LOGGED_IN")
 				}	
             })
-			.catch((err) => setError(err.response.msg));
+			.catch((err) => setError(err.response.data.msg));
 
 	};
 
@@ -92,6 +91,8 @@ export default function AdminLogin({setAdmin}) {
 						</button>
 					</div>
 				</div>
+
+				{error ? <h1 className='font-medium'>{error}</h1> : ''}
 			</form>
 		</div>
 	);

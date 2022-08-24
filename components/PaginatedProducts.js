@@ -39,7 +39,6 @@ export default function PaginatedProducts({ itemsPerPage, category, query }) {
 		() => {
 			// Fetch items from another resources.
 			const endOffset = itemOffset + itemsPerPage;
-			console.log(`Loading items from ${itemOffset} to ${endOffset}`);
 			setCurrentItems(products.slice(itemOffset, endOffset));
 			setPageCount(Math.ceil(products.length / itemsPerPage));
 		},
@@ -57,7 +56,6 @@ export default function PaginatedProducts({ itemsPerPage, category, query }) {
 
 	const handlePageClick = (event) => {
 		const newOffset = (event.selected * itemsPerPage) % products.length;
-		console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
 		setItemOffset(newOffset);
 	};
 

@@ -25,23 +25,20 @@ export default function InsertProduct() {
 	useEffect(() => {
 		axios({
 			method: 'post',
-			url: 'http://localhost:3001/007',
+			url: `${process.env.API_BASE_ENDPOINT}007`,
 			withCredentials: true
 		})
 			.then((res) => {
-				console.log("useCallback ran!")
 				const { state, success, msg } = res.data;
-				//console.log('DATA: ', res.data);
 				if (state === 'SIGNED_IN' && success) {
 					setAdmin("SIGNED_IN")
 				}
 			})
-			.catch((error) => console.log(error.response));
+			.catch((error) => setError({
+				state: true,
+				message: error.response.data.msg
+			}));
 	}, []);
-
-	// useEffect(() => {
-	// 	console.log("🚀 ~ file: insertProduct.js ~ line 45 ~ useEffect ~ admin", admin)
-	// }, [admin])
 
 	useEffect(
 		() => {
@@ -49,7 +46,6 @@ export default function InsertProduct() {
 			var salePrice = product.price - discountCut;
 
 			setProduct({ ...product, discountedPrice: salePrice });
-			//console.log('Product Now: ', product);
 		},
 		[ product.discount ]
 	);
@@ -62,7 +58,7 @@ export default function InsertProduct() {
 
 		const res = await axios({
 			method: 'post',
-			url: 'http://localhost:3001/insert',
+			url: `${process.env.API_BASE_ENDPOINT}insert`,
 			data: product,
 			headers: { 'Content-Type': 'multipart/form-data' }
 		})
@@ -98,7 +94,10 @@ export default function InsertProduct() {
 				}
 
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => setError({
+				state: true,
+				message: err.response.data.msg
+			}));
 	};
 
 	if (!admin) {
