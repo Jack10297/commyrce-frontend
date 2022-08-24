@@ -1,9 +1,7 @@
 import Head from 'next/head';
-import axios from 'axios';
 import Layout from '../components/Layout';
 import '../styles/tail.css';
 import '../styles/custom.css';
-import Link from 'next/link';
 import React from 'react';
 
 import { store } from '../store/store';
