@@ -8,7 +8,7 @@ export default function HomeProducts() {
 	useEffect(() => {
 		axios({
 			method: 'post',
-			url: `${process.env.API_BASE_ENDPOINT}random-products`,
+			url: `${process.env.NEXT_PUBLIC_API_BASE_ENDPOINT}random-products`,
 			data: {
 				noOfProducts: 6,
 			}
