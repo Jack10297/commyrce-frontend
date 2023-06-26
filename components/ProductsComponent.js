@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Link from 'next/link';
+import Image from 'next/image';
 
 
-export default function ProductsComponent({ products, category, query }) {
-	const [ found, setFound ] = useState(true);
-	const [ searchedProducts, setSearchedProducts ] = useState([]);
+export default function ProductsComponent({ products, query }) {
+	const [found, setFound] = useState(true);
+	const [searchedProducts, setSearchedProducts] = useState([]);
 
 	return (
 		<div>
@@ -34,13 +34,15 @@ export default function ProductsComponent({ products, category, query }) {
 										}
 									}}
 								>
-									<a className="p-4 md:w-1/3">
-										<div className="h-[500px] border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden text-clip">
-											<img
-												className="lg:h-48 md:h-36 w-full object-center object-contain"
-												src={product.image}
-												alt="blog"
-											/>
+									<a className="p-4 md:w-1/3 lg:w-100">
+										<div className="h-[500px] border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden text-clip product-container">
+												<Image
+													src={product.image}
+													alt="blog"
+													objectFit='contain'
+													height="200px"
+													width="100px"
+												/>
 											<div className="p-6">
 												<h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
 													{product.category}

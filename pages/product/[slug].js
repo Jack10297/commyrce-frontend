@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../store/slices/cartSlice';
+import Image from 'next/image';
 
 export default function Product() {
 	const dispatch = useDispatch()
@@ -50,7 +51,7 @@ export default function Product() {
 			<div>{error ? <h1 className='font-medium'>{error}</h1> : ''}</div>
 
 			<div className="">
-				<img className="rounded-md shadow-md" src={decodeURIComponent(image)} width={300} alt="product" />
+				<Image className="rounded-md shadow-md" src={decodeURIComponent(image)} height={500} width={300} alt="product" />
 			</div>
 
 			<div className="w-96 bg-slate-100 p-8 rounded-md">

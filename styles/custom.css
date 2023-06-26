@@ -8,4 +8,6 @@ a {
 }
 
 
-/* Navbar Custom Styles */
+.product-container > span{
+	width: 100% !important;
+}

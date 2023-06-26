@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import sampleImg from '../public/sample.jpg';
 
-import { useState, useEffect } from 'react';
 import DealProducts from './DealProducts';
 
 export default function Header() {
@@ -15,7 +14,7 @@ export default function Header() {
 							<br className="hidden lg:inline-block" />
 						</h1>
 						<p className="mb-8 leading-relaxed">
-							Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos
+							Copper jug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos
 							poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic
 							tumeric truffaut hexagon try-hard chambray.
 						</p>

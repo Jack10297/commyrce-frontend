@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Layout from '../components/Layout';
-import '../styles/tail.css';
 import '../styles/custom.css';
+import '../styles/tail.css';
 import React from 'react';
 
 import { store } from '../store/store';

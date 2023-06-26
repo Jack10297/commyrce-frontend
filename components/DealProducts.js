@@ -41,7 +41,7 @@ export default function DealProducts() {
 	if (deals.length === 0)
 		return (
 			<div className="relative lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-				<img className="object-cover object-center rounded bg-slate-300" height="720" width="600" />
+				<div className="object-cover object-center rounded bg-slate-300" height="720" width="600"> </div>
 				<span className="text-white text-2xl font-bold absolute top-[300px] left-[210px] ">
 					{error ? error : 'Loading...'}
 				</span>

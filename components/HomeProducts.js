@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
@@ -37,10 +38,12 @@ export default function HomeProducts() {
 								}
 							}}>
 								<a className='p-4 md:w-1/3'>
-										<div className="h-[500px] border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden text-clip">
-											<img
+										<div className="h-[500px] border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden text-clip product-container">
+											<Image
 												className="lg:h-48 md:h-36 w-full object-center object-contain"
 												src={product.image}
+												height="200px"
+												width="100px"
 												alt="blog"
 											/>
 											<div className="p-6">

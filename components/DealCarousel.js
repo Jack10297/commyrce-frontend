@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import Image from 'next/image'
 const OwlCarousel = dynamic(() => import('react-owl-carousel'), {
 	ssr: false
 });
@@ -10,7 +11,6 @@ if (typeof window !== 'undefined') {
 
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -31,10 +31,14 @@ export default function DealCarousel({ products, options }) {
 							image: encodeURIComponent(item.image)
 						}
 					})}>
-					<img
+					<Image
 						className="object-cover object-center rounded"
 						alt="hero"
 						src={item.image}
+						// layout='fill'
+						objectFit='contain'
+						height="300"
+						width="500"
 					/>
 				</div>
 			))}

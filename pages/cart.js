@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addToCart, removeFromCart } from '../store/slices/cartSlice';
 
 import Layout from '../components/Layout';
+import Image from 'next/image';
 
 export default function Cart() {
 	const dispatch = useDispatch();
@@ -51,7 +52,7 @@ export default function Cart() {
 			{cart.map((item) => (
 				<div key={item.id} className="flex bg-white shadow-md p-4 my-4 lg:w-1/2 md-2/3">
 					<div className="py-2 px-3 ">
-						<img src={decodeURIComponent(item.image)} alt="product" />
+						<Image src={decodeURIComponent(item.image)} alt="product" />
 					</div>
 					<div>
 						<h1 className="font-bold text-xl">Product Name: {item.name}</h1>
