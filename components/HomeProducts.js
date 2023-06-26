@@ -13,10 +13,20 @@ export default function HomeProducts() {
 			url: `${process.env.API_BASE_ENDPOINT}random-products`,
 			data: {
 				noOfProducts: 6,
-			}
+			},
 		}).then((res) => {
 			setProducts(res.data);
 		}).catch(err => setError(err.response.data.msg));
+
+
+		// sample get request
+		axios({
+			method: 'get',
+			url: `${process.env.API_BASE_ENDPOINT}`,
+		}).then((res) => {
+			setProducts(res.data);
+		}).catch(err => setError(err.response.data.msg));
+
 
 	}, []);
 
