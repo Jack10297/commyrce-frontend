@@ -1,9 +1,16 @@
 {
   "/_app": "pages/_app.js",
+  "/about": "pages/about.html",
+  "/api/hello": "pages/api/hello.js",
+  "/007/insertProduct": "pages/007/insertProduct.html",
+  "/contact": "pages/contact.html",
   "/_error": "pages/_error.js",
+  "/cart": "pages/cart.html",
+  "/": "pages/index.html",
+  "/login": "pages/login.html",
+  "/product/[slug]": "pages/product/[slug].html",
+  "/products": "pages/products.html",
+  "/register": "pages/register.html",
   "/_document": "pages/_document.js",
-  "/products": "pages/products.js",
-  "/contact": "pages/contact.js",
-  "/product/[slug]": "pages/product/[slug].js",
-  "/about": "pages/about.js"
+  "/404": "pages/404.html"
 }

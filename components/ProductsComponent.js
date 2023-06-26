@@ -4,8 +4,6 @@ import Image from 'next/image';
 
 
 export default function ProductsComponent({ products, query }) {
-	const [found, setFound] = useState(true);
-	const [searchedProducts, setSearchedProducts] = useState([]);
 
 	return (
 		<div>
