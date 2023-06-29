@@ -22,7 +22,7 @@ export default function ProductsComponent({ products, query }) {
 								<Link
 									key={index}
 									href={{
-										pathname: '/product/query',
+									    pathname: '/product/query',
 										query: {
 											name: product.productName,
 											price: product.price.$numberDecimal,
@@ -32,7 +32,7 @@ export default function ProductsComponent({ products, query }) {
 										}
 									}}
 								>
-									<a className="p-4 md:w-1/3 lg:w-100">
+									<div className="p-4 md:w-1/3 lg:w-100">
 										<div className="h-[500px] border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden text-clip product-container">
 												<Image
 													src={product.image}
@@ -74,7 +74,7 @@ export default function ProductsComponent({ products, query }) {
 												</div>
 											</div>
 										</div>
-									</a>
+									</div>
 								</Link>
 							))}
 					</div>

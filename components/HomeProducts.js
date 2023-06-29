@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 export default function HomeProducts() {
 	const [ products, setProducts ] = useState([]);
 	const [error, setError] = useState('');
- 
+
 	useEffect(() => {
 		axios({
 			method: 'post',
@@ -14,20 +14,10 @@ export default function HomeProducts() {
 			data: {
 				noOfProducts: 6,
 			},
+			withCredentials: true
 		}).then((res) => {
 			setProducts(res.data);
-		}).catch(err => setError(err.response.data.msg));
-
-
-		// sample get request
-		axios({
-			method: 'get',
-			url: `${process.env.API_BASE_ENDPOINT}`,
-		}).then((res) => {
-			setProducts(res.data);
-		}).catch(err => setError(err.response.data.msg));
-
-
+		}).catch(err => setError(err.response.data));
 	}, []);
 
 	return (
@@ -47,7 +37,7 @@ export default function HomeProducts() {
 									image: encodeURIComponent(product.image)
 								}
 							}}>
-								<a className='p-4 md:w-1/3'>
+								<div className='p-4 md:w-1/3'>
 										<div className="h-[500px] border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden text-clip product-container">
 											<Image
 												className="lg:h-48 md:h-36 w-full object-center object-contain"
@@ -85,13 +75,13 @@ export default function HomeProducts() {
 															<path d="M12 5l7 7-7 7" />
 														</svg>
 													</a>
-													
+
 												</div>
 											</div>
 										</div>
-									
 
-								</a></Link>
+
+								</div></Link>
 						))}
 					</div> }
 				</div>

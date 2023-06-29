@@ -52,7 +52,7 @@ export default function Cart() {
 			{cart.map((item) => (
 				<div key={item.id} className="flex bg-white shadow-md p-4 my-4 lg:w-1/2 md-2/3">
 					<div className="py-2 px-3 ">
-						<Image src={decodeURIComponent(item.image)} alt="product" />
+						<Image src={decodeURIComponent(item.image)} height={'100%'} width={'100%'} objectFit='contain' alt="product" />
 					</div>
 					<div>
 						<h1 className="font-bold text-xl">Product Name: {item.name}</h1>

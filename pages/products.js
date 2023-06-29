@@ -1,6 +1,5 @@
-import Layout from '../components/Layout';
-
 import { useState } from 'react';
+import Layout from '../components/Layout';
 import CartButton from '../components/CartButton';
 import PaginatedProducts from '../components/PaginatedProducts';
 

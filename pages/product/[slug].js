@@ -2,11 +2,12 @@ import Layout from '../../components/Layout';
 import axios from 'axios'
 
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../../store/slices/cartSlice';
 import Image from 'next/image';
+
 
 export default function Product() {
 	const dispatch = useDispatch()
@@ -14,7 +15,7 @@ export default function Product() {
 	const [error, setError] = useState('')
 
 	const router = useRouter();
-	const { name, price, description, category, image } = router.query;
+	const { name, price, description, category, image } = router.query
 
 	const generateId = () => {
 		return Math.floor(Math.random() * 1000) + 1
@@ -28,22 +29,22 @@ export default function Product() {
 				token: sessionStorage.getItem('token')
 			}
 		})
-		.then(res => {
-			if(res.data.status === 413) 
-				return router.push("/login")
-				
-			dispatch(addToCart({
-				id: generateId(),
-				name,
-				price,
-				description,
-				category,
-				image,
-				pieces
-			}))
-			
-		})
-		.catch(err => setError("Something Went Wrong!")) 
+			.then(res => {
+				if (res.data.status === 413)
+					return router.push("/login")
+
+				dispatch(addToCart({
+					id: generateId(),
+					name,
+					price,
+					description,
+					category,
+					image,
+					pieces
+				}))
+
+			})
+			.catch(err => setError("Something Went Wrong!"))
 	}
 
 	return (
@@ -63,7 +64,7 @@ export default function Product() {
 					<button
 						className="bg-red-600 px-4 py-2 text-yellow-50 hover:bg-red-700 rounded-md mr-4"
 						onClick={handleCart}
-						>
+					>
 						ADD TO CART
 					</button>
 
@@ -80,9 +81,9 @@ export default function Product() {
 							strokeLinecap="round"
 							strokeLinejoin="round"
 							onClick={() => {
-								if(pieces === 1)
+								if (pieces === 1)
 									return;
-								setPieces(pieces-1)
+								setPieces(pieces - 1)
 							}}
 						>
 							<desc>Download more icon variants from https://tabler-icons.io/i/caret-left</desc>
@@ -106,7 +107,7 @@ export default function Product() {
 							strokeLinecap="round"
 							strokeLinejoin="round"
 							onClick={() => {
-								setPieces(pieces+1)
+								setPieces(pieces + 1)
 							}}
 						>
 							<desc>Download more icon variants from https://tabler-icons.io/i/caret-right</desc>
@@ -127,3 +128,11 @@ Product.getLayout = function getLayout(page) {
 		</Layout>
 	);
 };
+
+export async function getServerSideProps (context){
+	return {
+		props: {
+			...context.query
+		}
+	}
+} 

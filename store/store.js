@@ -10,6 +10,6 @@ export const store = configureStore({
     test: stateSlice,
     pieces: piecesSlice,
     cart: cartSlice,
-    product: productSlice
+    product: productSlice,
   },
 })

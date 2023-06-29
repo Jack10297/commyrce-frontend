@@ -1,11 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import DealCarousel from './DealCarousel';
 
 export default function DealProducts() {
-	const [ deals, setDeals ] = useState([]);
-	const [ error, setError ] = useState(null);
-	const initialMount = useRef(true);
+	const [deals, setDeals] = useState([]);
+	const [error, setError] = useState(null);
 
 	const options = {
 		loop: true,
@@ -55,6 +54,4 @@ export default function DealProducts() {
 	);
 }
 
-// 720x600
 
-// src="https://dummyimage.com/720x600"

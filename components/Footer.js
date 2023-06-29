@@ -1,4 +1,5 @@
 export default function Footer() {
+	var year = new Date().getFullYear();
 	return (
 		<div>
 			<footer className="text-gray-600 body-font">
@@ -7,12 +8,11 @@ export default function Footer() {
 						<span className="ml-3 text-xl">Commyrce</span>
 					</a>
 					<p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-						© 2022 —
+						© {year} —
 						<a
 							href="#"
 							className="text-gray-600 ml-1"
 							rel="noopener noreferrer"
-							target="_blank"
 						>
 							@ahsan_mughal
 						</a>
