@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST={"..\\components\\DealCarousel.js -> react-owl-carousel":{id:2568,files:["static/chunks/568.909e252c42959d58.js"]}};
